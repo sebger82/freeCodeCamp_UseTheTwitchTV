@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <title>Twitch.tv channel viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta content="Strona zbudowana na potrzeby kursu freeCodeCamp. Pozwala podejrzeć streamowaną zawartość na kilku kanałach oraz poszukać innych" name="description">
+    <meta name="keywords" content="twitch.tv, viewer, stream, project, API">
+    <meta name="author" content="Sebastian Urbański">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <main>
+            <h1>Twitch.tv streaming list</h1>
+            <hr>
+            <form>
+                <div class="form-group">
+                    <label for="search">Search for twitch.tv user</label>
+                    <input name="search" type="search" placeholder="Enter user name" class="form-control" required id="search">
+                </div>
+                <div id="buttons-group">
+                    <div>
+                        <button id="question" type="submit" class="btn-search btn btn-success">Search</button>
+                        <button type="reset" value="Reset" class="btn-search btn btn-warning">Reset</button>
+                        <button type="button" value="Refresh Page" class="btn-search btn btn-danger" onClick="window.location.reload()">Refresh</button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Show <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li id="showOnline"><a href="#">Only online</a></li>
+                                <li id="showOffline"><a href="#">Only offline</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li id="showAll"><a href="#">Show all</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr>
+            <ul id="listOfStreams" class="list-unstyled">
+            </ul>
+        </main>
+        <footer>
+            <div>
+                <p id="author">Author <a href="https://seb.wf">Sebastian Urbański</a></p>
+                <p>API <a href="https://twitch.tv">twitch.tv</a></p>
+            </div>
+        </footer>
+    </div>
+</body>
